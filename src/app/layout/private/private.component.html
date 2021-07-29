@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <nav class="sidebar" [class.closed]="sidebarClosed">
+    <app-sidebar></app-sidebar>
+  </nav>
+  <div class="main">
+    <app-navbar (navbarToggleClick)="onNavbarToggle()"></app-navbar>
+    <main class="content"></main>
+    <footer></footer>
+  </div>
+</div>

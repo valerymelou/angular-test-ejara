@@ -1,0 +1,12 @@
+.navbar {
+  box-shadow: 0 0 2rem 0 rgb(41 48 66 / 10%);
+}
+
+.navbar-toggler {
+  display: flex;
+}
+
+.navbar-expand .navbar-collapse {
+  display: flex!important;
+  flex-basis: auto
+}
