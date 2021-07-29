@@ -8,3 +8,21 @@ body {
 body {
   background-color: #f7f9fc;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left .35s ease-in-out,left .35s ease-in-out,margin-right .35s ease-in-out,right .35s ease-in-out;
+  width: 100%;
+}
+
+.card {
+  box-shadow: 0 0 0.875rem 0 rgb(41 48 66 / 5%);
+  margin-bottom: 24px;
+  border: 0px transparent;
+}
+
+a {
+  transition: all cubic-bezier(0.39, 0.575, 0.565, 1);
+}

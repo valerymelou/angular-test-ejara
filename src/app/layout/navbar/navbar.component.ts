@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
+import { WindowService } from 'src/app/core/window.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +10,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class NavbarComponent {
   @Output() navbarToggleClick = new EventEmitter();
 
-  constructor() { }
+  constructor(public auth: AuthService, public windowService: WindowService) { }
 
   toggleNavbar(): void {
     this.navbarToggleClick.emit();
+  }
+
+  logout(): void {
+    this.auth.logout();
+    this.windowService.reload();
   }
 }

@@ -4,6 +4,7 @@ import { PublicComponent } from './public/public.component';
 import { PrivateComponent } from './private/private.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PrivateComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class LayoutModule { }
