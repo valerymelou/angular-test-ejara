@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiRoot: 'https://testbox.nellys-coin.ejaraapis.xyz/api/v1',
+  apiKey: '&6dqq5)$f97#N[GsIT$1Yc]Nk',
+  clientId: '07485a5a76',
+  tokenKey: 'token',
+  refreshTokenKey: 'token'
 };
 
 /*

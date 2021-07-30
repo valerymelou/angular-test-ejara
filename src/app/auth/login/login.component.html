@@ -1,0 +1,40 @@
+<div class="row h-100">
+  <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+    <div class="d-table-cell align-middle">
+      <div class="text-center mt-4">
+        <h1>Welcome back</h1>
+        <p class="lead">Sign in to continue</p>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="m-sm-4">
+            <div class="text-center">
+              <img src="assets/logo.png" alt="Ejara Logo" width="100" height="100" class="img-fluid rounded-circle">
+            </div>
+            <form [formGroup]="form" (submit)="onSubmit()">
+              <div class="my-3" *ngIf="error">
+                <p class="text-danger">{{ error }}</p>
+              </div>
+              <div class="mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input type="text" id="login" placeholder="Enter your username or email" class="form-control" formControlName="log" name="login" autofocus>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" class="form-control" formControlName="password" name="password">
+                <div class="form-text"><a href="">Forgot password?</a></div>
+              </div>
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary" [disabled]="loading">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+                  <span *ngIf="loading">Loading...</span>
+                  <span *ngIf="!loading">Sign in</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

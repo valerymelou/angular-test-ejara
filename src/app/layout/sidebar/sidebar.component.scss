@@ -1,0 +1,22 @@
+.sidebar-content {
+  height: 100vh;
+  left: 0;
+  position: sticky;
+  top: 0;
+}
+
+.nav {
+  .nav-link {
+    color: rgba(233,236,239,.5);
+    padding: .625rem 1.625rem;
+
+    &:hover,
+    &:focus {
+      color: rgba(233,236,239,.75)
+    }
+
+    &.active {
+      color: #fff;
+    }
+  }
+}
