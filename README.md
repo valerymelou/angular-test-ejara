@@ -2,8 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
 
-[![CI](https://github.com/valerymelou/angular-test-ejara/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/valerymelou/angular-test-ejara/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/valerymelou/angular-test-ejara/branch/develop/graph/badge.svg?token=1SDAW3LRUF)](https://codecov.io/gh/valerymelou/angular-test-ejara)
+[![CI](https://github.com/valerymelou/angular-test-ejara/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/valerymelou/angular-test-ejara/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/valerymelou/angular-test-ejara/branch/master/graph/badge.svg?token=1SDAW3LRUF)](https://codecov.io/gh/valerymelou/angular-test-ejara)
 
 ## Development server
 
