@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthData } from '../auth-data';
 
@@ -78,5 +78,27 @@ describe('LoginComponent', async () => {
     expect(authSpy.authenticate).toHaveBeenCalledWith(component.form.value.log, component.form.value.password);
     expect(authSpy.login).toHaveBeenCalledWith(authData);
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard']);
+  });
+
+  it('should not login', () => {
+    const hostElement = fixture.nativeElement;
+    const loginInput: HTMLInputElement = hostElement.querySelector('input[name="login"]');
+    const passwordInput: HTMLInputElement = hostElement.querySelector('input[name="password"]');
+    const form = fixture.debugElement.query(By.css('form')).nativeElement;
+    authSpy.authenticate.and.returnValue(throwError({error: {message: 'Invalid username/password'}}));
+    authSpy.login.and.returnValue(true);
+    routerSpy.navigate.and.returnValue(Promise.resolve(true));
+
+    loginInput.value = 'test@ejara';
+    passwordInput.value = 'password';
+
+    loginInput.dispatchEvent(new Event('input'));
+    passwordInput.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    form.dispatchEvent(new Event('submit'));
+
+    expect(authSpy.authenticate).toHaveBeenCalledWith(component.form.value.log, component.form.value.password);
+    expect(authSpy.login).not.toHaveBeenCalled();
+    expect(routerSpy.navigate).not.toHaveBeenCalled();
   });
 });

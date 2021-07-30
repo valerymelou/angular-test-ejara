@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PrivateComponent } from './private.component';
 
@@ -25,7 +26,8 @@ describe('PrivateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrivateComponent, NavbarMockComponent, SidebarMockComponent ]
+      declarations: [ PrivateComponent, NavbarMockComponent, SidebarMockComponent ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   });

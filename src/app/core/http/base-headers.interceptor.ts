@@ -14,7 +14,7 @@ export class BaseHeadersInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (!request.url.startsWith('http')) {
+    if (request.url.startsWith(environment.apiRoot)) {
       let headers = request.headers.set('api-key', environment.apiKey);
       headers = headers.set('client-id', `${environment.clientId}`);
 

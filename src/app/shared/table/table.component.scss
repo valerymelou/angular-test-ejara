@@ -1,0 +1,31 @@
+th {
+  position: relative;
+  cursor: pointer;
+}
+
+.sorting {
+  position: relative;
+
+  &:after,
+  &:before {
+    bottom: .5em;
+    display: block;
+    opacity: .3;
+    position: absolute;
+  }
+
+  &:after {
+    content: "↓";
+    right: .5em;
+  }
+
+  &:before {
+    content: "↑";
+    right: 1em;
+  }
+}
+
+.sort-asc::before,
+.sort-desc::after {
+  opacity: 1;
+}
