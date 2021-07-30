@@ -87,7 +87,6 @@ export class AuthService {
 
     try {
       state = jwtDecode(access);
-      console.log(state);
     } catch (Error) {
       return false;
     }
