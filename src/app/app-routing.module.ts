@@ -27,6 +27,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'transactions',
+        loadChildren: () => import('./transactions/transactions.module').then(m => m.TransactionsModule)
       }
     ]
   }

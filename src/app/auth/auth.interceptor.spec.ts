@@ -38,7 +38,7 @@ describe('AuthInterceptor', () => {
     client.get('/resource/').subscribe();
     const request = httpMock.match({method: 'get'})[0].request;
 
-    expect(request.headers.get('token')).toEqual('Bearer Token');
+    expect(request.headers.get('Authorization')).toEqual('Bearer Token');
   });
 
   it('should not add authorization header to request', () => {
@@ -46,7 +46,7 @@ describe('AuthInterceptor', () => {
     client.get('/resource/').subscribe();
     const request = httpMock.match({method: 'get'})[0].request;
 
-    expect(request.headers.get('token')).toBeNull();
+    expect(request.headers.get('Authorization')).toBeNull();
   });
 
   it('should not add authorization header to external request', () => {
@@ -54,6 +54,6 @@ describe('AuthInterceptor', () => {
     client.get('http://test.io/resource/').subscribe();
     const request = httpMock.match({method: 'get'})[0].request;
 
-    expect(request.headers.get('token')).toBeNull();
+    expect(request.headers.get('Authorization')).toBeNull();
   });
 });

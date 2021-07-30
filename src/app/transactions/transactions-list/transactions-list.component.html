@@ -1,0 +1,25 @@
+<div>
+  <h3>Transactions</h3>
+  <div class="d-flex align-items-center my-3">
+    <span class="d-inline-block me-3">Show</span>
+    <select class="form-select w-auto" [(ngModel)]="pageSize" name="page-size">
+      <option [value]="size" *ngFor="let size of pageSizes">{{ size }}</option>
+    </select>
+    <span class="d-inline-block ms-3 me-auto">entries</span>
+    <form [formGroup]="form" class="d-flex">
+      <div class="me-3">
+        <label for="transactionStatus">Status</label>
+        <select class="form-select w-auto" formControlName="transaction_status" name="status" id="transactionStatus" (ngModelChange)="getTransactions()">
+          <option [value]="status" *ngFor="let status of transactionStatuses">{{ status }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="transationType">Type</label>
+        <select class="form-select w-auto" formControlName="transaction_type" name="type" id="transactionType" (ngModelChange)="getTransactions()">
+          <option [value]="type" *ngFor="let type of transactionTypes">{{ type }}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <app-table [columns]="columns" [source]="dataSource" [loading]="loading" [pageSize]="pageSize"></app-table>
+</div>

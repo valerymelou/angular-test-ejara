@@ -1,0 +1,45 @@
+<div>
+  <table class="table table-striped dataTable no-footer dtr-inline">
+    <thead>
+      <tr>
+        <th class="sorting"
+          [class.sort-asc]="sortBy === column.key && sortDirection === 'ASC'"
+          [class.sort-desc]="sortBy === column.key && sortDirection=== 'DESC'"
+          rowspan="1" colspan="1"
+          *ngFor="let column of columns"
+          (click)="sort(column.key)">
+          {{ column.label }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of source.data | slice : (currentPage - 1) * pageSize : pageSize * currentPage">
+        <td *ngFor="let column of columns">
+          <ng-container *ngIf="column.type === 'date'">
+            {{ entry[column.key]|date:'medium' }}
+          </ng-container>
+          <ng-container *ngIf="column.type !== 'date'">
+            {{ entry[column.key] }}
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <span class="spinner-border spinner-border-sm" role="status" style="width: 3rem; height: 3rem;" aria-hidden="true" *ngIf="loading"></span>
+  </div>
+  <div class="d-flex">
+    <nav class="me-auto">
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <button class="page-link previous" tabindex="-1" (click)="previousPage()">Previous</button>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage > source.data.length / pageSize">
+          <button class="page-link next" tabindex="-1" (click)="nextPage()">Next</button>
+        </li>
+      </ul>
+    </nav>
+    <p>Showing {{ pageSize }} of {{ source.data.length }} results</p>
+  </div>
+</div>
+

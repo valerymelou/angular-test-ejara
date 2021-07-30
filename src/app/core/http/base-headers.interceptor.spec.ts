@@ -31,12 +31,12 @@ describe('BaseHeadersInterceptor', () => {
     client.get('https://api.github.com/').subscribe();
     const request = httpMock.match({method: 'get'})[0].request;
 
-    expect(request.headers.get('Content-Type')).toEqual(null);
-    expect(request.headers.get('Accept')).toEqual(null);
+    expect(request.headers.get('api-key')).toEqual(null);
+    expect(request.headers.get('client-id')).toEqual(null);
   });
 
   it('should set the content type and accept headers', () => {
-    client.get('/auth/login').subscribe();
+    client.get(`${environment.apiRoot}/auth/login`).subscribe();
     const request = httpMock.match({method: 'get'})[0].request;
 
     expect(request.headers.get('api-key')).toEqual(environment.apiKey);
